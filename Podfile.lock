@@ -1,0 +1,23 @@
+PODS:
+  - AFNetworking (1.2.1)
+  - HuddleKit (1.0.0):
+    - AFNetworking (~> 1.2.1)
+    - Reachability (~> 3.1.0)
+    - SVProgressHUD (~> 0.9)
+  - Reachability (3.1.0)
+  - SVProgressHUD (0.9)
+
+DEPENDENCIES:
+  - HuddleKit (from `https://github.com/Huddle/HuddleKit.git`)
+
+EXTERNAL SOURCES:
+  HuddleKit:
+    :git: https://github.com/Huddle/HuddleKit.git
+
+SPEC CHECKSUMS:
+  AFNetworking: a44069e3c9c89867544f6639482f155c7e5f9b41
+  HuddleKit: 0a764bf20060a3bbbd87a452f094057747aa3c8c
+  Reachability: ba94ecd4eaa037be3d0588b38956672588530c5b
+  SVProgressHUD: 03d4845ec8e64591726428a08236c6a5489d45f8
+
+COCOAPODS: 0.20.2
