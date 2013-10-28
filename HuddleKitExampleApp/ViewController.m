@@ -5,23 +5,22 @@
 //  Copyright (c) 2013 Huddle. All rights reserved.
 //
 
+#import "ViewController.h"
 
 #import "AppDelegate.h"
 #import "SVProgressHUD.h"
 #import "UIImageView+AFNetworking.h"
-#import "ViewController.h"
 
 @interface ViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *displayNameLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *avatarImageView;
+@property (nonatomic, weak) IBOutlet UILabel *displayNameLabel;
+@property (nonatomic, weak) IBOutlet UIImageView *avatarImageView;
 
 @end
 
 @implementation ViewController
 
-- (void)viewDidAppear:(BOOL)animated
-{
+- (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
 
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
@@ -49,8 +48,7 @@
     }];
 }
 
-- (IBAction)signOut:(id)sender
-{
+- (IBAction)signOut:(id)sender {
     [[HDKSession sharedSession] signOut];
     [[UIApplication sharedApplication].delegate performSelector:@selector(presentSignIn)];
 }
