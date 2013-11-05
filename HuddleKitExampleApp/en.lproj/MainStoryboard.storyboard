@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+        <deployment defaultVersion="1552" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="5">
             <objects>
                 <viewController id="2" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8xN-EC-y8l"/>
+                        <viewControllerLayoutGuide type="bottom" id="U4P-7x-UcQ"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="3">
-                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3A-qD-DyL">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <rect key="frame" x="131" y="518" width="58" height="30"/>
                                 <state key="normal" title="Sign out">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="signOut:" destination="2" eventType="touchUpInside" id="B4l-yE-ZnU"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="foU-Kc-3wK">
+                                <rect key="frame" x="88" y="274" width="212" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="a23-eh-SWB"/>
                                 </constraints>
@@ -34,6 +36,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o6Q-2K-vwD">
+                                <rect key="frame" x="20" y="254" width="60" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="C3z-8n-7uq"/>
                                     <constraint firstAttribute="height" constant="60" id="cfa-5x-ofx"/>
@@ -42,13 +45,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="foU-Kc-3wK" firstAttribute="leading" secondItem="o6Q-2K-vwD" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="4Uo-Al-DqL"/>
-                            <constraint firstAttribute="centerY" secondItem="o6Q-2K-vwD" secondAttribute="centerY" type="user" id="ECJ-zI-zL0"/>
-                            <constraint firstItem="c3A-qD-DyL" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" type="default" id="LKl-f1-mHS"/>
-                            <constraint firstAttribute="trailing" secondItem="foU-Kc-3wK" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="a0X-GE-cVX"/>
-                            <constraint firstAttribute="centerY" secondItem="foU-Kc-3wK" secondAttribute="centerY" type="user" id="mSU-pC-Iw0"/>
-                            <constraint firstItem="o6Q-2K-vwD" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="mkZ-AP-7yF"/>
-                            <constraint firstAttribute="bottom" secondItem="c3A-qD-DyL" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="uBE-Oj-QjL"/>
+                            <constraint firstItem="foU-Kc-3wK" firstAttribute="leading" secondItem="o6Q-2K-vwD" secondAttribute="trailing" constant="8" symbolic="YES" id="4Uo-Al-DqL"/>
+                            <constraint firstAttribute="centerY" secondItem="o6Q-2K-vwD" secondAttribute="centerY" id="ECJ-zI-zL0"/>
+                            <constraint firstItem="c3A-qD-DyL" firstAttribute="centerX" secondItem="3" secondAttribute="centerX" id="LKl-f1-mHS"/>
+                            <constraint firstAttribute="trailing" secondItem="foU-Kc-3wK" secondAttribute="trailing" constant="20" symbolic="YES" id="a0X-GE-cVX"/>
+                            <constraint firstAttribute="centerY" secondItem="foU-Kc-3wK" secondAttribute="centerY" id="mSU-pC-Iw0"/>
+                            <constraint firstItem="o6Q-2K-vwD" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="20" symbolic="YES" id="mkZ-AP-7yF"/>
+                            <constraint firstAttribute="bottom" secondItem="c3A-qD-DyL" secondAttribute="bottom" constant="20" symbolic="YES" id="uBE-Oj-QjL"/>
                         </constraints>
                     </view>
                     <connections>
@@ -59,20 +62,41 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--Sign In View Controller-->
+        <scene sceneID="uzj-gn-nP3">
+            <objects>
+                <viewController storyboardIdentifier="SignInViewController" id="ZH1-cV-pKC" customClass="SignInViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="l4Y-pU-iJV"/>
+                        <viewControllerLayoutGuide type="bottom" id="oqd-Xc-KMx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ckj-mb-zx0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WLe-DA-EPK">
+                                <rect key="frame" x="136" y="269" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sign In">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="signIn:" destination="ZH1-cV-pKC" eventType="touchUpInside" id="MdK-bZ-swJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="WLe-DA-EPK" secondAttribute="centerY" id="9D2-fO-Wxt"/>
+                            <constraint firstAttribute="centerX" secondItem="WLe-DA-EPK" secondAttribute="centerX" id="hQ4-f7-UF7"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y5l-PD-dny" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="490" y="69"/>
+        </scene>
     </scenes>
-    <classes>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="ViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="signOut:"/>
-                <relationship kind="outlet" name="avatarImageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="displayNameLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

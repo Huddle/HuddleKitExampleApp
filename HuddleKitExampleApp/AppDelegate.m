@@ -8,12 +8,15 @@
 #import "AppDelegate.h"
 
 #import "AFNetworkActivityIndicatorManager.h"
+#import "HDKLoginHTTPClient.h"
+#import "SignInViewController.h"
+#import "SVProgressHUD.h"
 #import <QuartzCore/QuartzCore.h>
 
-@interface AppDelegate () <HDKSignInViewControllerDelegate>
+@interface AppDelegate ()
 
 @property (nonatomic, strong) UIViewController *mainViewController;
-@property (nonatomic, strong) HDKSignInViewController *signInViewController;
+@property (nonatomic, strong) SignInViewController *signInViewController;
 
 @end
 
@@ -30,9 +33,10 @@
     return _mainViewController;
 }
 
-- (HDKSignInViewController *)signInViewController {
+- (SignInViewController *)signInViewController {
     if (!_signInViewController) {
-        _signInViewController = [[HDKSignInViewController alloc] initWithDelegate:self];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        _signInViewController = [storyboard instantiateViewControllerWithIdentifier:@"SignInViewController"];
     }
 
     return _signInViewController;
@@ -56,7 +60,24 @@
     return YES;
 }
 
-#pragma mark - HDKSignInViewControllerDelegate
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    NSURL *redirectURL = [NSURL URLWithString:[HDKLoginHTTPClient redirectUrl]];
+    if ([[url host] isEqualToString:[redirectURL host]]) {
+        NSString *code = [url.query componentsSeparatedByString:@"="][1];
+        [SVProgressHUD showWithStatus:@"Signing in…" maskType:SVProgressHUDMaskTypeGradient];
+        [[HDKLoginHTTPClient sharedClient] signInWithAuthorizationCode:code success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSString *accessToken = responseObject[@"access_token"];
+            [[HDKHTTPClient sharedClient] setAuthorizationHeaderWithToken:accessToken];
+            [SVProgressHUD dismiss];
+            [self signInSuccess];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            [SVProgressHUD dismiss];
+            [self signInFailure:error];
+        }];
+    }
+}
+
+#pragma mark - Private methods
 
 - (void)signInFailure:(NSError *)error {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Sign In Error", nil)
@@ -65,15 +86,11 @@
                                               cancelButtonTitle:NSLocalizedString(@"OK", nil)
                                               otherButtonTitles:nil];
     [alertView show];
-
-    [self.signInViewController loadLoginPage];
 }
 
 - (void)signInSuccess {
     [self dismissSignIn];
 }
-
-#pragma mark - Private methods
 
 - (void)presentSignIn {
     if (!_signInViewController) {
