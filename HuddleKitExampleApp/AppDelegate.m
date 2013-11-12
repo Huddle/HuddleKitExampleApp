@@ -75,6 +75,8 @@
             [self signInFailure:error];
         }];
     }
+
+    return YES;
 }
 
 #pragma mark - Private methods
